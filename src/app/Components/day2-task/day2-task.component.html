@@ -1,0 +1,40 @@
+<div class="container py-5">
+  <div class="border-2 p-3 my-2 bg-light">
+    <h2 class="py-2 text-capitalize text-center">task 1</h2>
+    <form class="row pb-3">
+      <div class="form-group col-12">
+        <label class="form-label">username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="username">
+        <p class="form-label pt-2">{{username}}</p>
+
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" (click)="AddUserName(username)" [disabled]="!lengthOfUsername()">add username</button>
+      </div>
+    </form>
+    <table class="table ">
+      <thead >
+        <tr class="">
+          <th>SN</th>
+          <th>USERNAME</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of ListOfUserName; track $index) {
+          <tr>
+            <td>{{$index}}</td>
+            <td>{{user}}</td>
+          </tr>
+        }
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="border-2 p-3 my-2 bg-light">
+    <h2 class="py-2 text-capitalize text-center">task 2</h2>
+    <button class="btn btn-primary" (click)="Display()">Display Details</button>
+    <p>you click this btn {{count}}</p>
+    <p class="lead" *ngIf="flag" [ngClass]="listOfClass" [ngStyle]="listOfStyle"> I am <strong>ASMAA</strong> i am a web developer</p>
+  </div>
+
